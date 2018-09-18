@@ -5,8 +5,6 @@ def generate_graph():
 
     n = random.randint(4, 20)  # n - количество вершин графа
 
-    n = 6
-
     matrix_graph = []  # matrix_graph - матрица соеденений графа
 
     #  Генерация графа и заполнение нолями
