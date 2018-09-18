@@ -5,6 +5,8 @@ def generate_graph():
 
     n = random.randint(4, 20)  # n - количество вершин графа
 
+    n = 6
+
     matrix_graph = []  # matrix_graph - матрица соеденений графа
 
     #  Генерация графа и заполнение нолями
@@ -13,47 +15,24 @@ def generate_graph():
         for j in range(n):
             matrix_graph[i].append(-1)
 
-    # Генерация случайного графа
-    for i in range(n):
-        for j in range(n):
-            temp_v = random.randint(3, 20)
-            matrix_graph[i][j] = temp_v
-            matrix_graph[j][i] = temp_v
+    # Генерация случайного числа которое будет самым большим в графе и 2 самых маленьких
+    huge_var = random.randint(20, 40)
+    first_min_var = int(huge_var/2)
+    second_min_var = first_min_var + 1
 
-    # Функция исправления графа(перебор разных чисел до правила треугольника)
-    def fix_graph():
+    def generate_grafik():
+        # Функция генерирующая отрезки
         for i in range(n):
             for j in range(n):
-                for g in range(n):
+                if j <= i:
+                    continue
+                temp_var = random.randint(second_min_var, huge_var)
+                matrix_graph[i][j] = temp_var
+                matrix_graph[j][i] = temp_var
 
-                    if matrix_graph[i][j] + matrix_graph[j][g] <= matrix_graph[g][i]:
-                        temp_v = matrix_graph[g][i] - matrix_graph[j][g]
-                        temp_vv = random.randint(temp_v + 1, temp_v + 10)
-                        matrix_graph[i][j] = temp_vv
-                        matrix_graph[j][i] = temp_vv
-                        return 0
+    generate_grafik()
 
-                    elif matrix_graph[j][g] + matrix_graph[g][i] <= matrix_graph[i][j]:
-                        temp_v = matrix_graph[i][j] - matrix_graph[g][i]
-                        temp_vv = random.randint(temp_v + 1, temp_v + 10)
-                        matrix_graph[j][g] = temp_vv
-                        matrix_graph[g][j] = temp_vv
-                        return 0
-
-                    elif matrix_graph[g][i] + matrix_graph[i][j] <= matrix_graph[g][j]:
-                        temp_v = matrix_graph[g][j] - matrix_graph[i][j]
-                        temp_vv = random.randint(temp_v + 1, temp_v + 10)
-                        matrix_graph[g][i] = temp_vv
-                        matrix_graph[i][g] = temp_vv
-                        return 0
-        return 1
-
-    # Исправление графа в виде постоянного перебора
-    a = 0
-    while a != 1:
-        a = fix_graph()
-
-    # Изменение параметров (1,1) (2,2) и т.д на 10000
+    # Изменение параметров (1,1) (2,2) и т.д на 1000
     for i in range(n):
         for j in range(n):
             if i != j:
