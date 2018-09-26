@@ -3,7 +3,7 @@ import random
 
 def generate_graph():
 
-    n = random.randint(4, 20)  # n - количество вершин графа
+    n = random.randint(4, 6)  # n - количество вершин графа
 
     matrix_graph = []  # matrix_graph - матрица соеденений графа
 
@@ -39,9 +39,6 @@ def generate_graph():
                 matrix_graph[i][j] = 1000
 
     return matrix_graph, n
-
-
-generate_graph()
 
 
 """
