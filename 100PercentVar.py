@@ -1,8 +1,11 @@
 import graph
+import copy
 
 matrix, n = graph.generate_graph()  # Подключение графа
 
-matrix_is = matrix
+matrix_is = copy.deepcopy(matrix)
+
+print()
 
 str_mas_min = []    # Массив с минимальными значениями в строке
 
@@ -57,25 +60,68 @@ for i in range(n):      # Вычиселния коэфицента
             matrix_s[i].append(-1)
 
 
-hide_p = []
+for i in range(n):
+    print()
+    for j in range(n):
+        print(matrix[i][j]," ", end="")
+
+for i in range(n):
+    print()
+    for j in range(n):
+        print(matrix_s[i][j]," ", end="")
+
+print()
+
 len_road = 0
-for g in range(n):
+off_klet = []
+us_town = []
+
+for k in range(n):
+    if len(us_town) == n:
+        break
     max_v = 0
+    ch_klet = [0, 0]
+    ch_past = -1
     for i in range(n):
         for j in range(n):
             con = 0
-            for k in range(len(hide_p)):
-                if hide_p[k][0] == i or hide_p[k][1] == j:
+            for k in range(len(off_klet)):
+                if off_klet[k] == [i, -1] or off_klet[k] == [-1, j]:
                     con = 1
-            if i == j or con == 1 or matrix_s[i][j] == -1:
-                continue
+            if max_v < matrix_s[i][j] and con == 0:
+                max_v = matrix_s[i][j]
+                ch_klet = [i, j]
 
-            if max_v <= matrix_s[i][j]:
-                hide_p.append([i, j])
-                max_v = matrix_is[i][j]
+    off_klet.append([ch_klet[0], -1])
+    off_klet.append([-1, ch_klet[1]])
+    print(ch_klet[0], ch_klet[1])
 
-    len_road += max_v
+    if k == 0:
+        us_town.append(ch_klet[0])
+        us_town.append(ch_klet[1])
+    else:
+        q = 0
+        for l in range(len(us_town)):
+            if us_town[l] == ch_klet[0]:
+                q = 1
+        if q == 0:
+            us_town.append(ch_klet[0])
 
+        q = 0
+        for l in range(len(us_town)):
+            if us_town[l] == ch_klet[1]:
+                q = 1
+        if q == 0:
+            us_town.append(ch_klet[1])
+
+for i in range(n):
+    print()
+    for j in range(n):
+        print(matrix_is[i][j]," ", end="")
+
+for i in range(len(us_town) - 1):
+    len_road += matrix_is[us_town[i]][us_town[i + 1]]
+
+len_road += matrix_is[us_town[len(us_town) - 1]][us_town[0]]
 
 print(len_road)
-
