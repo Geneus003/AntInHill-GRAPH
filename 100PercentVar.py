@@ -15,6 +15,14 @@ le_road = 0
 
 for q in range(n):
 
+    s = 0
+    for i in range(n):
+        for j in range(n):
+            s += matrix[i][j]
+
+    if s == (-2 * n):
+        break
+
     str_mas_min = []    # Массив с минимальными значениями в строке
 
     for i in range(n):      # Нахождение минимального числа
