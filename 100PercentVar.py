@@ -41,13 +41,6 @@ for q in range(n):
                 continue
             matrix[i][j] -= str_mas_min[i]
 
-    for i in range(n):
-        print()
-        for j in range(n):
-            print(matrix[i][j]," ", end="")
-
-    print()
-
     stl_mas_min = []    # Массив с минисальным значением в столбце
 
     for i in range(n):      # Нахождения мимума в столбце
@@ -65,13 +58,6 @@ for q in range(n):
             if matrix[j][i] == -2:
                 continue
             matrix[j][i] -= stl_mas_min[i]
-
-    for i in range(n):
-        print()
-        for j in range(n):
-            print(matrix[i][j]," ", end="")
-
-    print()
 
     matrix_s = []   # Таблица с коэфицентами для ноля
     for i in range(n):      # Вычиселния коэфицента
@@ -99,22 +85,6 @@ for q in range(n):
                 matrix_s[i].append(min_stl + min_str)
             else:
                 matrix_s[i].append(-1)
-
-
-    for i in range(n):
-        print()
-        for j in range(n):
-            print(matrix[i][j]," ", end="")
-
-    print()
-
-    for i in range(n):
-        print()
-        for j in range(n):
-
-            print(matrix_s[i][j]," ", end="")
-
-    print()
 
     max_cof = -3
     max_cof_kor = [-1, -1]
@@ -154,17 +124,6 @@ for q in range(n):
 
     matrix[max_cof_kor[1]][max_cof_kor[0]] = -2
 
-    for i in range(n):
-        print()
-        for j in range(n):
-            print(matrix[i][j]," ", end="")
 
-    print()
-
-    print(max_cof_kor, matrix_us_town)
-
-    print()
-    print()
-
-
+print()
 print(le_road)
