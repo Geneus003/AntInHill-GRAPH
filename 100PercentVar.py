@@ -107,7 +107,9 @@ def main_func(matrix, matrix_is, n, le_road, matrix_us_town):
 
         def find_max_cof(matrix_s):
             max_cof = -3
-            max_cof_kor = [-1, -1]
+            max_cof_kor = []
+            max_cof_kor.append([])
+            max_cof_kor[0] = [-1, -1]
 
             for i in range(n):
                 for j in range(n):
@@ -116,36 +118,49 @@ def main_func(matrix, matrix_is, n, le_road, matrix_us_town):
                     else:
                         if matrix_s[i][j] >= max_cof:
                             max_cof = matrix_s[i][j]
-                            max_cof_kor = [i, j]
+                            max_cof_kor[0] = [i, j]
+
+            for i in range(n):
+                for j in range(n):
+                    if matrix_s[i][j] == -1:
+                        continue
+                    if i == max_cof_kor[0][0] and j == max_cof_kor[0][1]:
+                        continue
+
+                    if matrix[i][j] == max_cof:
+                        max_cof_kor.append([i, j])
+
             return max_cof_kor
 
         max_cof_kor = find_max_cof(matrix_s)
 
         if len(matrix_us_town) == 0:
-            matrix_us_town.append(max_cof_kor[0])
-            matrix_us_town.append(max_cof_kor[1])
+            matrix_us_town.append(max_cof_kor[0][0])
+            matrix_us_town.append(max_cof_kor[0][1])
         else:
-            if max_cof_kor[0] in matrix_us_town:
+            if max_cof_kor[0][0] in matrix_us_town:
                 y = 0
             else:
-                matrix_us_town.append(max_cof_kor[0])
-            if max_cof_kor[1] in matrix_us_town:
+                matrix_us_town.append(max_cof_kor[0][0])
+            if max_cof_kor[0][1] in matrix_us_town:
                 y = 0
             else:
-                matrix_us_town.append(max_cof_kor[1])
+                matrix_us_town.append(max_cof_kor[0][1])
 
-        le_road += matrix_is[max_cof_kor[0]][max_cof_kor[1]]
+        le_road += matrix_is[max_cof_kor[0][0]][max_cof_kor[0][1]]
 
         for i in range(n):
             for j in range(n):
                 if matrix[i][j] == -2:
                     continue
-                if i == max_cof_kor[0]:
+                if i == max_cof_kor[0][0]:
                     matrix[i][j] = -2
-                if j == max_cof_kor[1]:
+                if j == max_cof_kor[0][1]:
                     matrix[i][j] = -2
 
-        matrix[max_cof_kor[1]][max_cof_kor[0]] = -2
+        matrix[max_cof_kor[0][1]][max_cof_kor[0][0]] = -2
+
+        max_cof_kor = []
 
     return matrix, le_road
 
