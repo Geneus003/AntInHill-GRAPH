@@ -1,4 +1,3 @@
-
 def StartProc():
 
     import graph
@@ -12,9 +11,9 @@ def StartProc():
     
     n = 5
     """
-
     matrix_is = copy.deepcopy(matrix)
     le_road = 0
+
 
     def main_func(matrix, matrix_is, n, le_road):
 
@@ -172,5 +171,7 @@ def StartProc():
 
     le_road, matrix = main_func(matrix, matrix_is, n, le_road)
 
+    return le_road, matrix_is, n
 
-StartProc()
+
+le, m = StartProc()
