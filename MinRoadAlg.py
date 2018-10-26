@@ -173,5 +173,5 @@ def StartProc():
 
     return le_road, matrix_is, n
 
-
-le, m = StartProc()
+if __name__ == "__main__":
+	le, m = StartProc()
