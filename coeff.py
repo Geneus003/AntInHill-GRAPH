@@ -2,7 +2,8 @@ import MinRoadAlg
 import figny
 
 le_road, graph, n = MinRoadAlg.StartProc()
-test = [1000, 0, 0, 0, 0]
+le_road1, grapf1, n1
+test = [10000, 0, 0, 0, 0]
 j = 0
 for a in range(2, 40, 2):
 	for b in range(2, 40, 2):
@@ -11,9 +12,9 @@ for a in range(2, 40, 2):
 				L = 0
 				j +=1
 				print("Time:", j, [a/10, b/10, k/10, e/10])
-				for i in range(50):
-					L += figny.formicaio_main(graph, n, [a/10, b/10, k/10, e/10])
-				if abs(L/5 - le_road) < test[0]:
-					test = [abs(L/5 - le_road), a/10, b/10, k/10, e/10]
+				for i in range(100):
+					L += figny.formicaio_main(graph, n, [a/10, b/10, k/10, e/10]) + figny.formicaio_main(graph1, n1, [a/10, b/10, k/10, e/10])
+				if abs(L/100 - (le_road + le_road1)) < test[0]:
+					test = [abs(L/100 - (le_road + le_road1), a/10, b/10, k/10, e/10]
 					print("Good:", test)
 print(test)
