@@ -14,7 +14,6 @@ def StartProc():
     matrix_is = copy.deepcopy(matrix)
     le_road = 0
 
-
     def main_func(matrix, matrix_is, n, le_road):
 
         s = 0
@@ -174,4 +173,4 @@ def StartProc():
     return le_road, matrix_is, n
 
 
-le, m = StartProc()
+le, m, n = StartProc()
