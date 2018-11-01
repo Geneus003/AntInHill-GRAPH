@@ -172,10 +172,6 @@ def StartProc():
 
     return le_road, matrix_is, n
 
-<<<<<<< HEAD
 
-le, m, n = StartProc()
-=======
 if __name__ == "__main__":
-	le, m = StartProc()
->>>>>>> 4fb5a063770d9c8391159722cc61e200924c8207
+    le, m, n = StartProc()

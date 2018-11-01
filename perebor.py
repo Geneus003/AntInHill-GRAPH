@@ -13,19 +13,20 @@ print(le_road_alg)
 
 def main_func(road_lean, usless_towns, pred):
 
-    here_town = copy.deepcopy(usless_towns)
     road = road_lean
 
     if len(usless_towns) == n:
         road += matrix[pred][usless_towns[0]]
-        return road, here_town
+        print(usless_towns, road)
+        return road, usless_towns
 
     min_len_road = 10000
     some_t = []
     for j in range(n):
-        if j in here_town:
+        if j in usless_towns:
             continue
         else:
+            here_town = copy.deepcopy(usless_towns)
             here_town.append(j)
             len_road = road + matrix[pred][j]
             pr_t = j
@@ -50,8 +51,6 @@ def start_func():
         pr = i
 
         le_road, us_t = main_func(le_road, us_town, pr)
-
-        print(le_road, us_t)
 
         if le_road < min_road:
             min_road = le_road
