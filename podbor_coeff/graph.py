@@ -3,7 +3,7 @@ import random
 
 def generate_graph():
 
-    n = random.randint(5, 6)    # n - количество вершин графа
+    n = random.randint(64, 128)    # n - количество вершин графа
 
     matrix_graph = []  # matrix_graph - матрица соеденений графа
 
@@ -14,7 +14,7 @@ def generate_graph():
             matrix_graph[i].append(-1)
 
     # Генерация случайного числа которое будет самым большим в графе и 2 самых маленьких
-    huge_var = random.randint(20, 40)
+    huge_var = random.randint(128, 256)
     first_min_var = int(huge_var/2)
     second_min_var = first_min_var + 1
 
