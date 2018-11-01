@@ -17,7 +17,7 @@ def main_func(road_lean, usless_towns, pred):
 
     if len(usless_towns) == n:
         road += matrix[pred][usless_towns[0]]
-        print(usless_towns, road)
+        #print(usless_towns, road)
         return road, usless_towns
 
     min_len_road = 10000
