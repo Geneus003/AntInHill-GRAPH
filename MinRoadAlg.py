@@ -1,14 +1,13 @@
 def StartProc():
-
     import graph
     import copy
 
     matrix, n = graph.generate_graph()  # Подключение графа
 
     """
-    
+
     matrix = [[-2, 20, 18, 12, 8], [5, -2, 14, 7, 11], [12, 18, -2, 6, 11], [11, 17, 11, -2, 12], [5, 5, 5, 5, -2]]
-    
+
     n = 5
     """
     matrix_is = copy.deepcopy(matrix)

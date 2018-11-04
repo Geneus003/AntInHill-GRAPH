@@ -1,5 +1,6 @@
 import graph
 import random
+import perebor
 
 def formicaio_main(graph, n, coeff):
 	fero = []
@@ -59,3 +60,4 @@ if __name__ == "__main__":
 	graph, n = graph.generate_graph()
 
 	print(formicaio_main(graph, n, [3.5, 3.5, 2, 4]))
+	print(perebor.mainus(graph, n))
