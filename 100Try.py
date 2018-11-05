@@ -1,18 +1,15 @@
-
 def StartProc():
-
     import graph
     import copy
 
     matrix, n = graph.generate_graph()  # Подключение графа
 
     """
-    
+
     matrix = [[-2, 20, 18, 12, 8], [5, -2, 14, 7, 11], [12, 18, -2, 6, 11], [11, 17, 11, -2, 12], [5, 5, 5, 5, -2]]
-    
+
     n = 5
     """
-
     matrix_is = copy.deepcopy(matrix)
     le_road = 0
 
@@ -135,7 +132,23 @@ def StartProc():
 
         max_cof_kor = find_max_cof(matrix_s)
 
+        for i in range(n):
+            for j in range(n):
+                print(matrix[i][j], " ", end="")
+            print()
+
+        print()
+
+        for i in range(n):
+            for j in range(n):
+                print(matrix_s[i][j], " ", end="")
+            print()
+
+        print(len(max_cof_kor))
+        print("---------------------------------------")
         min_road = 10000
+
+        maska = [-1, -1]
 
         for q in range(len(max_cof_kor)):
 
@@ -158,7 +171,10 @@ def StartProc():
             le, matrix_w = main_func(matrix_w, matrix_is, n, now_road)
 
             if le <= min_road:
+                maska = [max_cof_kor[q][0], max_cof_kor[q][1]]
                 min_road = le
+
+        print(maska)
 
         s = 0
         for i in range(n):
@@ -172,5 +188,8 @@ def StartProc():
 
     le_road, matrix = main_func(matrix, matrix_is, n, le_road)
 
+    return le_road, matrix_is, n
 
-StartProc()
+
+if __name__ == "__main__":
+    le, m, n = StartProc()
