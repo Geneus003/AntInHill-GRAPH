@@ -47,7 +47,7 @@ def mainus(matrix, n):
                 min_road = le_road
                 uska_t = copy.deepcopy(us_t)
 
-        return le_road, uska_t
+        return le_road
 
     """
     if min_road > le_road_alg:
