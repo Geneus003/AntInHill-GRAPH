@@ -3,7 +3,7 @@ import random
 
 def generate_graph():
 
-    n = random.randint(64, 128)    # n - количество вершин графа
+    n = random.randint(5, 7)    # n - количество вершин графа
 
     matrix_graph = []  # matrix_graph - матрица соеденений графа
 
