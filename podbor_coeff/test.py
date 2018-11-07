@@ -4,7 +4,7 @@ import figny
 def test_coeff(coeff):
 	percent = {}
 	
-	for i in range(1000):
+	for i in range(10000):
 		le_road, graph, n = MinRoadAlg.StartProc()
 		L = figny.formicaio_main(graph, n, coeff)
 		
@@ -13,10 +13,11 @@ def test_coeff(coeff):
 			percent[percent_temp] = 1
 		else:
 			percent[percent_temp] += 1
-	
+		print(i)
 	percent = sorted(percent.items())
 	return(percent)
 	
 if __name__ == "__main__":
 	print(test_coeff([3.6, 3.8, 0.5, 1.0]))
+
 
