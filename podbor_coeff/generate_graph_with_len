@@ -5,7 +5,7 @@ import time
 
 def main_func(Qu):
   rezult = {}
-
+  
   for i in range(Qu):
     matrix, n = graph.generate_graph()
     time_ = time.time()
@@ -16,4 +16,5 @@ def main_func(Qu):
 
 
 if __name__ == "__main__":
-  print(main_func(500))
+  f = open('graph_with_len.txt', 'w')
+  f.write(main_func(500))
