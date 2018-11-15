@@ -18,3 +18,4 @@ def main_func(Qu):
 if __name__ == "__main__":
   f = open('graph_with_len.txt', 'w')
   f.write(main_func(500))
+  f.close()
