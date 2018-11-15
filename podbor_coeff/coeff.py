@@ -2,8 +2,8 @@ import perebor
 import figny
 import graph
 
-number_matrix = 10
-number_test = 1000
+cu_matrix = 100
+cu_test = 10000
 
 
 le_road, matrix, n = [], [], []
@@ -12,17 +12,17 @@ for i in range(number_matrix):
 	matrix += [0]
 	n += [0]
 	matrix[i], n[i] = graph.generate_graph()
-	le_road[i] = perebor.mainus(matrix[i], n[i])
+	le_road[i], rfrfrfrfrffrfrfrfrfiighyivuguivgukguiyv = perebor.mainus(matrix[i], n[i])
 	print(i)
 le_road_sum = sum(le_road)
 
-Good = [100000000, 0, 0, 0, 0]
+Good = [88005553535, 0, 0, 0, 0]
 j = 0
 
-for a in range(30, 41, 1):
-	for b in range(32, 45, 1):
-		for k in range(1, 10, 1):
-			for e in range(5, 20, 1):
+for a in range(25, 45, 1):
+	for b in range(25, 45, 1):
+		for k in range(1, 100, 1):
+			for e in range(1, 100, 1):
 				L = 0
 				j +=1
 				
