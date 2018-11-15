@@ -1,5 +1,5 @@
 import copy
-import MinRoadAlg
+
 
 def mainus(matrix, n):
 
@@ -34,7 +34,7 @@ def mainus(matrix, n):
     def start_func():
         min_road = 1000000
         uska_t = []
-        for i in range(n):
+        for i in range(1):
 
             le_road = 0
             us_town = []
@@ -47,7 +47,7 @@ def mainus(matrix, n):
                 min_road = le_road
                 uska_t = copy.deepcopy(us_t)
 
-        return le_road
+        return le_road, uska_t
 
     """
     if min_road > le_road_alg:
@@ -56,20 +56,3 @@ def mainus(matrix, n):
         print("False", min_road)
     """
     return start_func()
-
-
-if __name__ == "__main__":
-    for i in range(1):
-        le_road_alg, matrix, n = MinRoadAlg.StartProc()
-
-        for i in range(n):
-            print()
-            for j in range(n):
-                print(matrix[i][j], " ", end="")
-        print()
-        print(le_road_alg)
-        mainus(matrix, n)
-        print()
-        print()
-        print()
-        print()
