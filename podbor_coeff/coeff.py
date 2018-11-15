@@ -2,8 +2,8 @@ import perebor
 import figny
 import graph
 
-cu_matrix = 100
-cu_test = 10000
+Qu_matrix = 100
+Qu_test = 10000
 
 
 le_road, matrix, n = [], [], []
