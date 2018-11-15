@@ -1,0 +1,19 @@
+import graph
+import perebor
+import time
+
+
+def main_func(Qu):
+  rezult = {}
+
+  for i in range(Qu):
+    matrix, n = graph.generate_graph()
+    time_ = time.time()
+    len_, road = perebor.mainus(matrix, n)
+    time_ = time.time() - time_
+    rezult[i] = [matrix, n, len_, time_]
+  return rezult
+
+
+if __name__ == "__main__":
+  print(main_func(500))
