@@ -1,5 +1,6 @@
 import graph
 import random
+import numpy
 
 def formicaio_main(graph, n, coeff):
 	fero = []
@@ -8,7 +9,7 @@ def formicaio_main(graph, n, coeff):
 		for j in range(n):
 			fero[i].append(0)
 	i = 0
-	while i < 100:
+	while i < 1000:
 		fero, L = choice_way(graph, n, fero, coeff)
 		i += 1
 	return(L)
@@ -19,18 +20,13 @@ def choice_way(graph, n, fero, coeff):
 	way = [i]
 	L = 0
 	for x in range(n-1):
-		probability = [(fero[i][j])**coeff[0] + (graph[i][j])**(-coeff[1]) for j in range(n)]
+		probability = numpy.array([(fero[i][j])**coeff[0] + (graph[i][j])**(-coeff[1]) for j in range(n)])
 		for l in way:
 			probability[l] = 0
 		sum_ = sum(probability)
-		for l in range(n):
-			probability[l] /= sum_
-		rand = random.random() - 0.00001
-		for l in range(n):
-			rand -= probability[l]
-			if rand < 0:
-				i = l
-				break
+		probability /= sum_
+		i = numpy.random.choise(n, 1, p = probability)[0]
+		
 		L += graph[way[x]][i]
 		way += [i]
 	L += graph[i][0]
