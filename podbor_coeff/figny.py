@@ -8,7 +8,7 @@ def formicaio_main(graph, n, coeff):
 		for j in range(n):
 			fero[i].append(0)
 	i = 0
-	while i < 100:
+	while i < 1000:
 		fero, L = choice_way(graph, n, fero, coeff)
 		i += 1
 	return(L)
