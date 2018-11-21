@@ -2,7 +2,7 @@ import figny
 import Parsing_f
 
 
-Qu_test = 100
+Qu_test = 10
 
 con = 0
 pr = 0
@@ -19,10 +19,10 @@ for i in range(500):
 Good = [88005553535, 0, 0, 0, 0]
 j = 0
 
-for a in range(1, 50, 1):
-	for b in range(1, 50, 1):
-		for k in range(5, 1000, 5):
-			for e in range(5, 1000, 1):
+for a in range(10, 50, 2):
+	for b in range(10, 50, 2):
+		for k in range(1, 100, 3):
+			for e in range(1, 100, 3):
 				L = 0
 				j +=1
 				
