@@ -1,16 +1,14 @@
 import graph
 import random
 
-def formicaio_main(graph, n, coeff):
+def formicaio_main(graph, n, coeff, Qu_ants):
 	fero = []
 	for i in range(n):
 		fero.append([])
 		for j in range(n):
 			fero[i].append(0)
-	i = 0
-	while i < 1000:
+	for i in range(Qu_ants):
 		fero, L = choice_way(graph, n, fero, coeff)
-		i += 1
 	return(L)
 	
 # Выбор пути
@@ -57,5 +55,4 @@ def choice_way(graph, n, fero, coeff):
 
 if __name__ == "__main__":
 	graph, n = graph.generate_graph()
-
-	print(formicaio_main(graph, n, [3.5, 3.5, 2, 4]))
+	print(formicaio_main(graph, n, [3.6, 3.8, 0.5, 1.0], 10000))
